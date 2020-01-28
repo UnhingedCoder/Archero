@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5856201819045979198}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,10 +97,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.1953125}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 1}
     oldSize: {x: 0.390625, y: 0.390625}
     newSize: {x: 1.28, y: 5.12}
     adaptiveTilingThreshold: 0.5
@@ -130,7 +130,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &5856201819045979198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +145,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   detectDistance: 20
+  fireRate: 2
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
+  projectilePrefab: {fileID: 3498706554228141046, guid: 85fc2836c8e9041188fa7aeccb5a028f,
+    type: 3}
   targetToAttack: {fileID: 0}

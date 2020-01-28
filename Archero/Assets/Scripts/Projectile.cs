@@ -35,5 +35,12 @@ public class Projectile : MonoBehaviour
         float temp = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         return new Vector3(0, 0, temp);
     }
-   
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }

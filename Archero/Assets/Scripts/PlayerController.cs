@@ -6,10 +6,12 @@ public class PlayerController : MonoBehaviour
 {
     public int speed;
     public float detectDistance = 10f;
+    public float fireRate;
     public LayerMask enemyLayer;
     public GameObject projectilePrefab;
 
     public GameObject targetToAttack;
+    private Vector3 npcDirection;
     private Vector3 change;
     private Rigidbody2D _rigidbody;
     private DynamicJoystick _joystick;
@@ -24,6 +26,9 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         targetToAttack = null;
+        npcDirection = Vector3.zero;
+
+        InvokeRepeating("FireProjectiles", 0.0f, 1.0f / fireRate);
     }
 
     // Update is called once per frame
@@ -43,8 +48,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        DetectEnemy();
         Move();
+        DetectEnemy();
     }
 
     void Move()
@@ -61,13 +66,9 @@ public class PlayerController : MonoBehaviour
         int targetIndex = 99;
         float shortestDist = 999f;
 
-        Vector3 dir = Vector3.zero;
-
         RaycastHit2D[] hit = Physics2D.CircleCastAll(this.transform.position, detectDistance, Vector2.right, detectDistance * 2f, enemyLayer);
         if (hit.Length > 0)
         {
-            if (targetToAttack == null)
-            {
                 for (int i = 0; i < hit.Length; i++)
                 {
                     if (hit[i].collider != null)
@@ -85,19 +86,31 @@ public class PlayerController : MonoBehaviour
                 if (targetIndex < hit.Length)
                 {
                     targetToAttack = hit[targetIndex].collider.gameObject;
-                    dir = (hit[targetIndex].collider.gameObject.transform.position - this.transform.position).normalized;
-                    Debug.Log("Direction: " + dir);
-                    FireProjectiles(dir);
+                    npcDirection = (hit[targetIndex].collider.gameObject.transform.position - this.transform.position).normalized;
+                    Debug.Log("Direction: " + npcDirection);
                 }
-            }
         }
+                
+    }
+
+    void FireProjectiles()
+    {
+        if (targetToAttack == null)
+        {
+            return;
+        }
+
+        if (change == Vector3.zero)
+        {
+            CreateProjectiles();
+        }
+
     }
 
 
-
-    void FireProjectiles(Vector3 direction)
+    void CreateProjectiles()
     {
         Projectile projectile = Instantiate(projectilePrefab, this.transform.position, Quaternion.identity).GetComponent<Projectile>();
-        projectile.SetupProjectile(direction);
+        projectile.SetupProjectile(npcDirection);
     }
 }
