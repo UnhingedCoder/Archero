@@ -7,11 +7,13 @@ public class EnemyController : MonoBehaviour
     [HideInInspector]
     public HealthController _healthController;
     private TargetDetector _targetDetector;
+    private EnemySpawner _enemySpawner;
 
     void Awake()
     {
         _targetDetector = GetComponent<TargetDetector>();
         _healthController = GetComponent<HealthController>();
+        _enemySpawner = FindObjectOfType<EnemySpawner>();
     }
 
     // Start is called before the first frame update
@@ -49,6 +51,7 @@ public class EnemyController : MonoBehaviour
     {
         if (_healthController.isDead)
         {
+            _enemySpawner.ReduceLiveEnemies();
             Destroy(this.gameObject);
         }
     }
