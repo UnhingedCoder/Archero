@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     public int speed;
     public float detectDistance = 10f;
+    public LayerMask enemyLayer;
+    public GameObject projectilePrefab;
 
     public GameObject targetToAttack;
     private Vector3 change;
@@ -58,7 +60,10 @@ public class PlayerController : MonoBehaviour
     {
         int targetIndex = 99;
         float shortestDist = 999f;
-        RaycastHit2D[] hit = Physics2D.CircleCastAll(this.transform.position, detectDistance, Vector2.right, detectDistance * 2f);
+
+        Vector3 dir = Vector3.zero;
+
+        RaycastHit2D[] hit = Physics2D.CircleCastAll(this.transform.position, detectDistance, Vector2.right, detectDistance * 2f, enemyLayer);
         if (hit.Length > 0)
         {
             if (targetToAttack == null)
@@ -67,8 +72,8 @@ public class PlayerController : MonoBehaviour
                 {
                     if (hit[i].collider != null)
                     {
-                        Debug.Log("hit " + hit[i].collider.name);
                         float dist = Vector3.Distance(this.transform.position, hit[i].collider.gameObject.transform.position);
+                        Debug.Log("Hit " + hit[i].collider.name + " Dist: " + dist);
                         if (dist < shortestDist)
                         {
                             targetIndex = i;
@@ -77,9 +82,22 @@ public class PlayerController : MonoBehaviour
                     }
                 }
 
-                if(targetIndex < hit.Length)
+                if (targetIndex < hit.Length)
+                {
                     targetToAttack = hit[targetIndex].collider.gameObject;
+                    dir = (hit[targetIndex].collider.gameObject.transform.position - this.transform.position).normalized;
+                    Debug.Log("Direction: " + dir);
+                    FireProjectiles(dir);
+                }
             }
         }
+    }
+
+
+
+    void FireProjectiles(Vector3 direction)
+    {
+        Projectile projectile = Instantiate(projectilePrefab, this.transform.position, Quaternion.identity).GetComponent<Projectile>();
+        projectile.SetupProjectile(direction);
     }
 }
