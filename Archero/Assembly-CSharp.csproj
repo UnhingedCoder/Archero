@@ -68,8 +68,13 @@
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
+    <Compile Include="Assets\Scripts\EnemyController.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\HealthController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
+    <Compile Include="Assets\Scripts\TargetDetector.cs" />
+    <Compile Include="Assets\Scripts\UI\DeathScreenController.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/ayanchakrabarty/Archero/Archero/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

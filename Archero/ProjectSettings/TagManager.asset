@@ -17,8 +17,8 @@ TagManager:
   - 
   - NPC
   - Obstacle
-  - 
-  - 
+  - Player
+  - Projectile
   - 
   - 
   - 
@@ -42,4 +42,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 1207897739
     locked: 0
