@@ -1,20 +1,22 @@
 ﻿<Properties StartupConfiguration="{6614962A-3EDF-6A0F-598B-4CEDB4C53E8D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EnemySpawner.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/DeathScreenController.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="8" Column="27" />
-      <File FileName="Assets/Scripts/Projectile.cs" Line="89" Column="31" />
-      <File FileName="Assets/Scripts/TargetDetector.cs" Line="59" Column="59" />
-      <File FileName="Assets/Scripts/EnemyController.cs" Line="81" Column="108" />
-      <File FileName="Assets/Scripts/HealthController.cs" Line="38" Column="17" />
-      <File FileName="Assets/Scripts/UI/DeathScreenController.cs" />
-      <File FileName="Assets/Scripts/EnemySpawner.cs" Line="55" Column="59" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="26" Column="1" />
+      <File FileName="Assets/Scripts/Projectile.cs" Line="89" Column="25" />
+      <File FileName="Assets/Scripts/TargetDetector.cs" Line="39" Column="28" />
+      <File FileName="Assets/Scripts/EnemyController.cs" Line="70" Column="41" />
+      <File FileName="Assets/Scripts/HealthController.cs" Line="17" Column="6" />
+      <File FileName="Assets/Scripts/UI/DeathScreenController.cs" Line="23" Column="33" />
+      <File FileName="Assets/Scripts/EnemySpawner.cs" Line="37" Column="1" />
       <File FileName="Assets/Scripts/CollectableController.cs" Line="39" Column="27" />
-      <File FileName="Assets/Scripts/UI/HUDController.cs" Line="26" Column="57" />
+      <File FileName="Assets/Scripts/UI/HUDController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/DoorController.cs" Line="49" Column="60" />
+      <File FileName="Assets/Scripts/UI/MainMenuController.cs" Line="22" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="bde2505b-ee1e-4d45-8dbc-ed31e4d5a8de" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e295cdd6-4a52-4dd3-8833-570bd57e454a" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

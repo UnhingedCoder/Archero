@@ -15,7 +15,6 @@ public class HealthController : MonoBehaviour
 
     private void OnEnable()
     {
-        currentHP = totalHP;
         isDead = false;
     }
 

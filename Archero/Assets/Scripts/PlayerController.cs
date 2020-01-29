@@ -27,6 +27,9 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         _deathScreenController.SetActive(false);
+        totalCoins = PlayerPrefs.GetInt("Coins", 0);
+        _healthController.currentHP = PlayerPrefs.GetFloat("HP", _healthController.totalHP);
+        _targetDetector.hasSideShot = bool.Parse(PlayerPrefs.GetString("sideshot", "false"));
     }
 
     // Start is called before the first frame update

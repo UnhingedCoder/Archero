@@ -504,6 +504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  totalCoins: 0
   _healthController: {fileID: 0}
 --- !u!114 &1759403094
 MonoBehaviour:
@@ -525,6 +526,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3498706554228141046, guid: 85fc2836c8e9041188fa7aeccb5a028f,
     type: 3}
   targetToAttack: {fileID: 0}
+  hasSideShot: 0
 --- !u!114 &7759809682729383898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,7 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalHP: 100
-  currentHP: 0
+  currentHP: 100
   isDead: 0
   hpBar: {fileID: 1888772883}
   hpVal: {fileID: 1432839675}

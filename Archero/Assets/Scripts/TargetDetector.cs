@@ -9,6 +9,7 @@ public class TargetDetector : MonoBehaviour
     public float fireRate = 1;
     public GameObject projectilePrefab;
     public GameObject targetToAttack;
+    public bool hasSideShot;
 
     private Vector3 npcDirection;
 
@@ -16,7 +17,6 @@ public class TargetDetector : MonoBehaviour
     {
         targetToAttack = null;
         npcDirection = Vector3.zero;
-
     }
 
     // Start is called before the first frame update
@@ -66,5 +66,16 @@ public class TargetDetector : MonoBehaviour
     {
         Projectile projectile = Instantiate(projectilePrefab, this.transform.position , Quaternion.identity).GetComponent<Projectile>();
         projectile.SetupProjectile(npcDirection);
+
+        if (hasSideShot)
+        {
+            Projectile leftProjectile = Instantiate(projectilePrefab, this.transform.position, Quaternion.identity).GetComponent<Projectile>();
+            Vector2 perPosL = Vector2.Perpendicular(npcDirection);
+            leftProjectile.SetupProjectile(perPosL);
+
+            Projectile rightProjectile = Instantiate(projectilePrefab, this.transform.position, Quaternion.identity).GetComponent<Projectile>();
+            Vector2 perPosR = Vector2.Perpendicular(-npcDirection);
+            rightProjectile.SetupProjectile(perPosR);
+        }
     }
 }

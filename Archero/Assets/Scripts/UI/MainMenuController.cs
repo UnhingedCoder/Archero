@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class DeathScreenController : MonoBehaviour
+public class MainMenuController : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -18,12 +18,11 @@ public class DeathScreenController : MonoBehaviour
         
     }
 
-    public void OnRestartClicked()
+    public void OnNewGameClicked()
     {
         PlayerPrefs.DeleteAll();
-        string sceneName = SceneManager.GetActiveScene().name;
+        string sceneName = "Demo";
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-
     }
 
     public void OnExitClicked()

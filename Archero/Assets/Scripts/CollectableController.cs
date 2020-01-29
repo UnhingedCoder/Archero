@@ -36,7 +36,7 @@ public class CollectableController : MonoBehaviour
         float dist = Vector3.Distance(this.transform.position, player.gameObject.transform.position);
         if (dist < 1.5)
         {
-            float step = 2 * Time.deltaTime;
+            float step = 5 * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, player.gameObject.transform.position, step);
         }
     }

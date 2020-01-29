@@ -14,6 +14,12 @@ public class EnemySpawner : MonoBehaviour
 
     private int totalLiveEnemies;
     private int currentWave = 0;
+    private DoorController doorController;
+
+    private void Awake()
+    {
+        doorController = FindObjectOfType<DoorController>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -28,12 +34,14 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnEnemies(enemiesToSpawn);
         }
+
+        CheckForWaveCompletion();
     }
 
     void SpawnEnemies(int totalEnemies)
     {
         totalLiveEnemies = 0;
-        //Debug.LogError("SpawnEnemies");
+        Debug.LogError("SpawnEnemies");
 
         int totalSpawnPoints = spawnPosContainer.childCount;
         spawnPointIndices.Clear();
@@ -67,5 +75,13 @@ public class EnemySpawner : MonoBehaviour
     public void ReduceLiveEnemies()
     {
         totalLiveEnemies--;
+    }
+
+    void CheckForWaveCompletion()
+    {
+        if (totalLiveEnemies <= 0 && currentWave >= totalWaves)
+        {
+            doorController.OpenDoor();
+        }
     }
 }
