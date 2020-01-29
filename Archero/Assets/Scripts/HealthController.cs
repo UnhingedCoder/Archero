@@ -34,4 +34,18 @@ public class HealthController : MonoBehaviour
         if (currentHP <= 0)
             isDead = true;
     }
+
+    public void TakeDamage(float dmg)
+    {
+        Debug.Log("TakeDamage");
+        currentHP -= dmg;
+    }
+
+    public void Heal(int amt)
+    {
+        if ((currentHP + amt) <= totalHP)
+        {
+            currentHP += amt;
+        }
+    }
 }

@@ -43,7 +43,7 @@ public class TargetDetector : MonoBehaviour
                 if (hit[i].collider != null)
                 {
                     float dist = Vector3.Distance(this.transform.position, hit[i].collider.gameObject.transform.position);
-                    Debug.Log("Hit " + hit[i].collider.name + " Dist: " + dist);
+                    //Debug.Log("Hit " + hit[i].collider.name + " Dist: " + dist);
                     if (dist < shortestDist)
                     {
                         targetIndex = i;
@@ -56,7 +56,7 @@ public class TargetDetector : MonoBehaviour
             {
                 targetToAttack = hit[targetIndex].collider.gameObject;
                 npcDirection = (hit[targetIndex].collider.gameObject.transform.position - this.transform.position).normalized;
-                Debug.Log("Direction: " + npcDirection);
+                //Debug.Log("Direction: " + npcDirection);
             }
         }
 
@@ -64,7 +64,7 @@ public class TargetDetector : MonoBehaviour
 
     public void CreateProjectiles()
     {
-        Projectile projectile = Instantiate(projectilePrefab, this.transform.position, Quaternion.identity).GetComponent<Projectile>();
+        Projectile projectile = Instantiate(projectilePrefab, this.transform.position , Quaternion.identity).GetComponent<Projectile>();
         projectile.SetupProjectile(npcDirection);
     }
 }

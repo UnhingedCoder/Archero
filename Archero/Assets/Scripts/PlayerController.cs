@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public int speed;
+    public int totalCoins;
     [HideInInspector]
     public HealthController _healthController;
 

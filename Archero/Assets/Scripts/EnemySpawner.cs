@@ -32,9 +32,8 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemies(int totalEnemies)
     {
-        //Random.InitState(Random.Range(0, 10));
         totalLiveEnemies = 0;
-        Debug.LogError("SpawnEnemies");
+        //Debug.LogError("SpawnEnemies");
 
         int totalSpawnPoints = spawnPosContainer.childCount;
         spawnPointIndices.Clear();
@@ -55,7 +54,9 @@ public class EnemySpawner : MonoBehaviour
 
         for (int j = 0; j < readyToSpawnPoints.Count; j++)
         {
-            Instantiate(enemyPrefab, spawnPosContainer.GetChild(readyToSpawnPoints[j]).transform.position, Quaternion.identity);
+            Vector3 pos = new Vector3(Random.Range(spawnPosContainer.GetChild(readyToSpawnPoints[j]).transform.position.x - 0.05f, spawnPosContainer.GetChild(readyToSpawnPoints[j]).transform.position.x + 0.05f),
+                    Random.Range(spawnPosContainer.GetChild(readyToSpawnPoints[j]).transform.position.y - 0.05f, spawnPosContainer.GetChild(readyToSpawnPoints[j]).transform.position.y + 0.05f), 0);
+            Instantiate(enemyPrefab, pos, Quaternion.identity);
             totalLiveEnemies++;
         }
 

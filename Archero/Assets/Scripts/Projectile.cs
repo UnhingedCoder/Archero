@@ -86,6 +86,6 @@ public class Projectile : MonoBehaviour
         }
 
         if(healthCntrl != null)
-            healthCntrl.currentHP -= damage;
+            healthCntrl.TakeDamage(damage);
     }
 }

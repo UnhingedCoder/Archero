@@ -368,8 +368,8 @@ GameObject:
   - component: {fileID: 7172507895068471391}
   - component: {fileID: 7172507895068471388}
   - component: {fileID: 7172507895068471389}
-  - component: {fileID: 67388972}
   - component: {fileID: 67388973}
+  - component: {fileID: 67388972}
   - component: {fileID: -1887067224321335776}
   m_Layer: 8
   m_Name: Enemy
@@ -491,6 +491,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &67388973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7172507895068471378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcb46838e19e34c54a562ec6e334650b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinPrefab: {fileID: 5874963879706548105, guid: 3f302cc8b705849c185010bf339e4863,
+    type: 3}
+  healthPrefab: {fileID: 3610663441151272599, guid: d390c564f49e3435e97aa16b7bc3d46b,
+    type: 3}
+  healthDropChance: 50
+  coinsToDrop: 5
+  _healthController: {fileID: 0}
 --- !u!114 &67388972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,19 +530,6 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3498706554228141046, guid: 8334b5cd6e55945bf97eba05aad5d7cb,
     type: 3}
   targetToAttack: {fileID: 0}
---- !u!114 &67388973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7172507895068471378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcb46838e19e34c54a562ec6e334650b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _healthController: {fileID: 0}
 --- !u!114 &-1887067224321335776
 MonoBehaviour:
   m_ObjectHideFlags: 0

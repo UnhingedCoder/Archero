@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public GameObject coinPrefab;
+    public GameObject healthPrefab;
+
+    [SerializeField]
+    private float healthDropChance;
+    [SerializeField]
+    private int coinsToDrop;
+
     [HideInInspector]
     public HealthController _healthController;
     private TargetDetector _targetDetector;
@@ -52,7 +60,27 @@ public class EnemyController : MonoBehaviour
         if (_healthController.isDead)
         {
             _enemySpawner.ReduceLiveEnemies();
+            SpawnLootDrop();
             Destroy(this.gameObject);
+        }
+    }
+
+    void SpawnLootDrop()
+    {
+        float lootDropChance = Random.Range(0, 100);
+
+        if (lootDropChance <= healthDropChance)
+        {
+            Instantiate(healthPrefab, this.transform.position, Quaternion.identity);
+        }
+        else
+        {
+            for (int i = 0; i < coinsToDrop; i++)
+            {
+                Vector3 pos = new Vector3(Random.Range(this.transform.position.x - 0.25f, this.transform.position.x + 0.25f),
+                    Random.Range(this.transform.position.y - 0.25f, this.transform.position.y + 0.25f), 0);
+                Instantiate(coinPrefab, pos, Quaternion.identity);
+            }
         }
     }
 }
