@@ -10,14 +10,14 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 change;
     private Rigidbody2D _rigidbody;
-    private DynamicJoystick _joystick;
+    private VariableJoystick _joystick;
     private TargetDetector _targetDetector;
     private GameObject _deathScreenController;
 
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        _joystick = FindObjectOfType<DynamicJoystick>();
+        _joystick = FindObjectOfType<VariableJoystick>();
         _targetDetector = GetComponent<TargetDetector>();
         _healthController = GetComponent<HealthController>();
         _deathScreenController = FindObjectOfType<DeathScreenController>().gameObject;
