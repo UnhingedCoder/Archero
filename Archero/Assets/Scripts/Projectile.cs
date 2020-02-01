@@ -14,6 +14,7 @@ public class Projectile : MonoBehaviour
     public float damage;
     public GameObject hitFXPrefab;
     public ProjectileCreator creator;
+    public ObjectPooler _objectPooler;
 
     private string compareObjName;
     private Rigidbody2D _rigidBody;
@@ -21,6 +22,19 @@ public class Projectile : MonoBehaviour
     private void Awake()
     {
         _rigidBody = this.gameObject.GetComponent<Rigidbody2D>();
+        switch (creator)
+        {
+            case ProjectileCreator.Player:
+                {
+                    _objectPooler = GameObject.Find("PlayerBulletPool").GetComponent<ObjectPooler>();
+                }
+                break;
+            case ProjectileCreator.NPC:
+                {
+                    _objectPooler = GameObject.Find("EnemyBulletPool").GetComponent<ObjectPooler>();
+                }
+                break;
+        }
     }
 
     private void OnEnable()
@@ -58,7 +72,8 @@ public class Projectile : MonoBehaviour
 
         if (!collision.gameObject.CompareTag(compareObjName))
         {
-            Destroy(this.gameObject);
+            _objectPooler.DestroyPooledObject(this.gameObject);
+            //Destroy(this.gameObject);
             Instantiate(hitFXPrefab, this.transform.position, Quaternion.identity);
 
         }

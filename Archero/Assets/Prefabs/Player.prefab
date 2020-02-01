@@ -431,7 +431,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 8633881525917383573, guid: a805a96c701ad934397f1a7dd252e25b,
     type: 3}
   m_Color: {r: 0.12941177, g: 1, b: 1, a: 1}
@@ -503,7 +503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ead83fcc9a2b5488b26ae16b483fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 3
   totalCoins: 0
   _healthController: {fileID: 0}
 --- !u!114 &1759403094
@@ -527,6 +527,7 @@ MonoBehaviour:
     type: 3}
   targetToAttack: {fileID: 0}
   hasSideShot: 0
+  _objectPooler: {fileID: 0}
 --- !u!114 &7759809682729383898
 MonoBehaviour:
   m_ObjectHideFlags: 0

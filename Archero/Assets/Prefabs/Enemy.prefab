@@ -531,6 +531,8 @@ MonoBehaviour:
     type: 3}
   targetToAttack: {fileID: 0}
   hasSideShot: 0
+  _objectPooler: {fileID: 0}
+  creator: 1
 --- !u!114 &-1887067224321335776
 MonoBehaviour:
   m_ObjectHideFlags: 0

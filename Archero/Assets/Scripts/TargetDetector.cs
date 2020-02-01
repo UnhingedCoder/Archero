@@ -10,8 +10,26 @@ public class TargetDetector : MonoBehaviour
     public GameObject projectilePrefab;
     public GameObject targetToAttack;
     public bool hasSideShot;
-
+    public ObjectPooler _objectPooler;
+    public ProjectileCreator creator;
     private Vector3 npcDirection;
+
+    private void Awake()
+    {
+        switch (creator)
+        {
+            case ProjectileCreator.Player:
+                {
+                    _objectPooler = GameObject.Find("PlayerBulletPool").GetComponent<ObjectPooler>();
+                }
+                break;
+            case ProjectileCreator.NPC:
+                {
+                    _objectPooler = GameObject.Find("EnemyBulletPool").GetComponent<ObjectPooler>();
+                }
+                break;
+        } 
+    }
 
     private void OnEnable()
     {
@@ -64,16 +82,19 @@ public class TargetDetector : MonoBehaviour
 
     public void CreateProjectiles()
     {
-        Projectile projectile = Instantiate(projectilePrefab, this.transform.position , Quaternion.identity).GetComponent<Projectile>();
+        Projectile projectile = _objectPooler.GetPooledObject(this.transform).GetComponent<Projectile>();
+        projectile.gameObject.SetActive(true);//Instantiate(projectilePrefab, this.transform.position , Quaternion.identity).GetComponent<Projectile>();
         projectile.SetupProjectile(npcDirection);
 
         if (hasSideShot)
         {
-            Projectile leftProjectile = Instantiate(projectilePrefab, this.transform.position, Quaternion.identity).GetComponent<Projectile>();
+            Projectile leftProjectile = _objectPooler.GetPooledObject(this.transform).GetComponent<Projectile>();
+            leftProjectile.gameObject.SetActive(true);
             Vector2 perPosL = Vector2.Perpendicular(npcDirection);
             leftProjectile.SetupProjectile(perPosL);
 
-            Projectile rightProjectile = Instantiate(projectilePrefab, this.transform.position, Quaternion.identity).GetComponent<Projectile>();
+            Projectile rightProjectile = _objectPooler.GetPooledObject(this.transform).GetComponent<Projectile>();
+            rightProjectile.gameObject.SetActive(true);
             Vector2 perPosR = Vector2.Perpendicular(-npcDirection);
             rightProjectile.SetupProjectile(perPosR);
         }

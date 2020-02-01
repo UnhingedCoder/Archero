@@ -50,12 +50,12 @@ public class PlayerController : MonoBehaviour
         change.x = _joystick.Horizontal;
         change.y = _joystick.Vertical;
 #endif
+        Move();
         CheckPlayerDeath();
     }
 
     private void FixedUpdate()
     {
-        Move();
         _targetDetector.DetectEnemy();
     }
 
