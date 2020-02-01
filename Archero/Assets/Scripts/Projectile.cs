@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
 {
     public float speed;
     public float damage;
+    public GameObject hitFXPrefab;
     public ProjectileCreator creator;
 
     private string compareObjName;
@@ -41,7 +42,6 @@ public class Projectile : MonoBehaviour
 
     public void SetupProjectile(Vector3 targetDir)
     {
-
         this.transform.rotation = Quaternion.Euler(DetectProjectileFacingDirection(targetDir));
         _rigidBody.velocity = targetDir * speed;
     }
@@ -59,6 +59,8 @@ public class Projectile : MonoBehaviour
         if (!collision.gameObject.CompareTag(compareObjName))
         {
             Destroy(this.gameObject);
+            Instantiate(hitFXPrefab, this.transform.position, Quaternion.identity);
+
         }
     }
 

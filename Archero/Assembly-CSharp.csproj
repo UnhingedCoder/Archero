@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\HealthController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
+    <Compile Include="Assets\Scripts\SelfDestroyer.cs" />
     <Compile Include="Assets\Scripts\TargetDetector.cs" />
     <Compile Include="Assets\Scripts\UI\DeathScreenController.cs" />
     <Compile Include="Assets\Scripts\UI\HUDController.cs" />

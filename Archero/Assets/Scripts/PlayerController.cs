@@ -90,6 +90,11 @@ public class PlayerController : MonoBehaviour
     {
         if (_healthController.isDead)
         {
+            int highScore = PlayerPrefs.GetInt("highscore", 0);
+            if (totalCoins > highScore)
+            {
+                PlayerPrefs.SetInt("highscore", totalCoins);
+            }
             _deathScreenController.SetActive(true);
         }
     }

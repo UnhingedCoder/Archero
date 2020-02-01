@@ -145,4 +145,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   damage: 10
+  hitFXPrefab: {fileID: 4613620480950144516, guid: b019c0d1363864033a6f3e06df1cab30,
+    type: 3}
   creator: 0
