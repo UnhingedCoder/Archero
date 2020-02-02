@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public int speed;
+    public float speed;
     public int totalCoins;
     [HideInInspector]
     public HealthController _healthController;

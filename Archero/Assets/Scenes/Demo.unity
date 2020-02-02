@@ -1415,6 +1415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23bece8abd2f4a78be7547a2e054f78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnDelay: 0.5
   enemiesToSpawn: 1
   totalWaves: 3
   enemyPrefab: {fileID: 7172507895068471378, guid: 05ae9af566c76412fba2b6e4a2c495fb,
@@ -2467,6 +2468,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856201819045979198, guid: 728f9471d350a4be6a59520a24310a49,
+        type: 3}
+      propertyPath: speed
+      value: 3.3
       objectReference: {fileID: 0}
     - target: {fileID: 5856201819045979199, guid: 728f9471d350a4be6a59520a24310a49,
         type: 3}

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public float spawnDelay;
     public int enemiesToSpawn;
     public int totalWaves;
     public GameObject enemyPrefab;
@@ -15,6 +16,7 @@ public class EnemySpawner : MonoBehaviour
     private int totalLiveEnemies;
     private int currentWave = 0;
     private DoorController doorController;
+    private float t = 0;
 
     private void Awake()
     {
@@ -25,6 +27,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         currentWave = 0;
+        t = spawnDelay;
     }
 
     // Update is called once per frame
@@ -32,7 +35,12 @@ public class EnemySpawner : MonoBehaviour
     {
         if (totalLiveEnemies <= 0 && currentWave < totalWaves)
         {
-            SpawnEnemies(enemiesToSpawn);
+            t += Time.deltaTime;
+            if (t > spawnDelay)
+            {
+                SpawnEnemies(enemiesToSpawn);
+                t = 0f;
+            }
         }
 
         CheckForWaveCompletion();
