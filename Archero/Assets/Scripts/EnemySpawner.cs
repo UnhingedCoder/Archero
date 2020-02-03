@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -10,11 +11,13 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemyPrefab;
     public List<int> spawnPointIndices = new List<int>();
     public List<int> readyToSpawnPoints = new List<int>();
+    public Animator waveCounterAnim;
 
     public Transform spawnPosContainer;
 
     private int totalLiveEnemies;
-    private int currentWave = 0;
+    public int currentWave = 0;
+    private bool showNextWaveWarning = false;
     private DoorController doorController;
     private float t = 0;
 
@@ -27,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         currentWave = 0;
-        t = spawnDelay;
+        t = 0;
     }
 
     // Update is called once per frame
@@ -35,13 +38,18 @@ public class EnemySpawner : MonoBehaviour
     {
         if (totalLiveEnemies <= 0 && currentWave < totalWaves)
         {
+            waveCounterAnim.GetComponent<Text>().text = "WAVE " + ((currentWave)+1).ToString();
+            showNextWaveWarning = true;
             t += Time.deltaTime;
             if (t > spawnDelay)
             {
                 SpawnEnemies(enemiesToSpawn);
+                showNextWaveWarning = false;
                 t = 0f;
             }
         }
+
+        waveCounterAnim.SetBool("WARNING", showNextWaveWarning);
 
         CheckForWaveCompletion();
     }
@@ -88,7 +96,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (totalLiveEnemies <= 0 && currentWave >= totalWaves)
         {
-            doorController.OpenDoor();
+            doorController.canDoorOpen = true;
         }
     }
 }

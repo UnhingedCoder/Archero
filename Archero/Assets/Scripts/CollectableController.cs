@@ -13,10 +13,12 @@ public class CollectableController : MonoBehaviour
     public int rewardVal;
     public CollectableType collectableType;
     private PlayerController player;
+    private DoorController door;
 
     private void Awake()
     {
         player = FindObjectOfType<PlayerController>();
+        door = FindObjectOfType<DoorController>();
     }
 
     // Start is called before the first frame update
@@ -34,7 +36,7 @@ public class CollectableController : MonoBehaviour
     void FlyToPlayer()
     {
         float dist = Vector3.Distance(this.transform.position, player.gameObject.transform.position);
-        if (dist < 1.5)
+        if (dist < 1.5 || door.canDoorOpen)
         {
             float step = 5 * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, player.gameObject.transform.position, step);

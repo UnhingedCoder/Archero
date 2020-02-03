@@ -8,6 +8,7 @@ public class DoorController : MonoBehaviour
     private SpriteRenderer doorSprite;
     private BoxCollider2D coll;
     private PlayerController player;
+    public bool canDoorOpen;
 
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class DoorController : MonoBehaviour
 
     private void OnEnable()
     {
+        canDoorOpen = false;
         coll.enabled = false;
         doorSprite.color = new Color(doorSprite.color.r, doorSprite.color.g, doorSprite.color.b, 1.0f);
     }
@@ -31,10 +33,13 @@ public class DoorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (canDoorOpen)
+        {
+            OpenDoor();
+        }
     }
 
-    public void OpenDoor()
+    void OpenDoor()
     {
         coll.enabled = true;
         doorSprite.color = new Color(doorSprite.color.r, doorSprite.color.g, doorSprite.color.b, 0.0f);

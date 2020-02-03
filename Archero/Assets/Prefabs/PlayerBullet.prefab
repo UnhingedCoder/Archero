@@ -143,8 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd13a596056b44328af1628680050678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 4
   damage: 10
   hitFXPrefab: {fileID: 4613620480950144516, guid: b019c0d1363864033a6f3e06df1cab30,
     type: 3}
   creator: 0
+  _objectPooler: {fileID: 0}
