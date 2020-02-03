@@ -49,7 +49,6 @@ public class EnemySpawner : MonoBehaviour
     void SpawnEnemies(int totalEnemies)
     {
         totalLiveEnemies = 0;
-        Debug.LogError("SpawnEnemies");
 
         int totalSpawnPoints = spawnPosContainer.childCount;
         spawnPointIndices.Clear();

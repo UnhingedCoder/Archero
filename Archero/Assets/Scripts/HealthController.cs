@@ -36,7 +36,6 @@ public class HealthController : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
-        Debug.Log("TakeDamage");
         currentHP -= dmg;
     }
 

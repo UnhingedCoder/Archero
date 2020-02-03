@@ -67,7 +67,6 @@ public class EnemyController : MonoBehaviour
 
     void SpawnLootDrop()
     {
-        Debug.LogError("Dropping loot");
         float lootDropChance = Random.Range(0, 100);
 
         if (lootDropChance <= healthDropChance)
